@@ -16,9 +16,11 @@ if (!log2) return message.reply("Belirtilen sunucunun logu ayarlanmamış!")
 let kanal2 = db.fetch(`kanal${gidenurl}`)
 if (!kanal2) return message.reply("Belirtilen sunucunun partner kanalı ayarlanmamış!")
 
+ const text = db.fetch(`text_${gidenurl}`)
+  
 const embed = new Discord.EmbedBuilder()
 .setTitle("Partner İsteği Geldi!")
-.setDescription(`Partnerlik Atan Sunucu: ${message.guild.name}\n\nPartnerlik Atan: ${message.author}`)
+.setDescription(`Partnerlik Atan Sunucu: ${message.guild.name}\n\nPartnerlik Atan: ${message.author}\nSunucu Texti:\n\n${text}`)
 const row = new Discord.ActionRowBuilder()
 .addComponents(
 new Discord.ButtonBuilder()
